@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>That Alpine Feeling — a documentary by Matías Marcín</title>
+  <meta name="description" content="That Alpine Feeling: a contemplative mountain documentary about the feeling of being small. Peru and Bolivia, summer 2027. By Matías Marcín.">
+  <meta name="theme-color" content="#15171A">
+
+  <!-- Sharing (email, WhatsApp, social). Image URLs must be absolute. -->
+  <link rel="canonical" href="https://movuk99.github.io/that-alpine-feeling/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="That Alpine Feeling">
+  <meta property="og:title" content="That Alpine Feeling">
+  <meta property="og:description" content="Have you ever felt minuscule in a place so gigantic? A mountain documentary by Matías Marcín. Peru & Bolivia, 2027.">
+  <meta property="og:url" content="https://movuk99.github.io/that-alpine-feeling/">
+  <meta property="og:image" content="https://movuk99.github.io/that-alpine-feeling/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Analog photo of the sun setting over a volcanic crater rim, with warm light leaks">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="That Alpine Feeling">
+  <meta name="twitter:description" content="Have you ever felt minuscule in a place so gigantic? A mountain documentary by Matías Marcín. Peru & Bolivia, 2027.">
+  <meta name="twitter:image" content="https://movuk99.github.io/that-alpine-feeling/images/og.jpg">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="preload" as="image" href="images/01.jpg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <main>
+    <!-- PHOTOS + PHRASES ------------------------------------------------------
+         One block per photo, each with its phrase centred on top.
+         Phrase texts are edited in script.js (CONFIG.QUESTION / CONFIG.PHRASES);
+         the text written here is only the fallback if JavaScript doesn't run.
+         --pos moves the crop: "--pos: 30% 50%" = horizontal% vertical%.      -->
+    <div class="story">
+
+      <header class="frame frame--hero">
+        <div class="frame__media"><img src="images/01.jpg" alt="Analog photo of the sun setting over a volcanic crater rim, with warm light leaks" fetchpriority="high" width="1818" height="1228" style="--pos: 30% 50%"></div>
+        <div class="hero__top">
+          <span class="label">That Alpine Feeling</span>
+          <span class="label">A film by Matías Marcín</span>
+        </div>
+        <h1 class="frame__text" data-question>Have you ever felt minuscule in a place so gigantic?</h1>
+        <p class="hero__cue label" aria-hidden="true"><span>Scroll</span></p>
+      </header>
+
+      <figure class="frame">
+        <div class="frame__media"><img src="images/02.jpg" alt="Two hikers pause on a rocky ridge above an endless sea of mountain ranges" loading="lazy" width="2000" height="1500" style="--pos: 50% 92%"></div>
+        <figcaption class="frame__text" data-phrase="0">The feeling of being outside, humbled by the reminder of our size.</figcaption>
+      </figure>
+
+      <figure class="frame">
+        <div class="frame__media"><img src="images/03.jpg" alt="Black-and-white summit: climbers resting among rime-covered rocks, high above the valleys" loading="lazy" width="2000" height="1333" style="--pos: 70% 50%"></div>
+        <figcaption class="frame__text" data-phrase="1">Up here, I am the smallest thing in the frame.</figcaption>
+      </figure>
+
+      <figure class="frame">
+        <div class="frame__media"><img src="images/04.jpg" alt="Two hikers, tiny among purple wildflowers, below a snow-capped volcano" loading="lazy" width="2000" height="1333"></div>
+        <figcaption class="frame__text" data-phrase="2">That alpine feeling: just you and the mountains.</figcaption>
+      </figure>
+
+      <figure class="frame">
+        <div class="frame__media"><img src="images/05.jpg" alt="A climber sits in the snow at dawn, facing a ridge lit pink by the first light" loading="lazy" width="2000" height="1333" style="--pos: 28% 60%"></div>
+        <figcaption class="frame__text" data-phrase="3">Some feelings can't be explained. Maybe they can be filmed.</figcaption>
+      </figure>
+
+    </div>
+
+    <section class="interlude" aria-labelledby="film-title">
+      <p class="phrase reveal" data-phrase="4">This film is my attempt to bring that feeling home.</p>
+      <h2 class="interlude__title reveal" id="film-title">That Alpine Feeling</h2>
+      <p class="label reveal">A documentary · Peru &amp; Bolivia · 2027</p>
+    </section>
+  </main>
+
+  <!-- VIDEO + CONTACT ---------------------------------------------------- -->
+  <footer class="end">
+    <div class="end__cta reveal">
+      <a class="btn" data-video aria-disabled="true">Video coming soon</a>
+    </div>
+
+    <div class="end__info">
+      <p class="end__name">Matías Marcín Valdés</p>
+      <p class="end__bio">Mexican mountaineer and filmmaker based in Madrid. Founder of OCMT and president of the IE&nbsp;University Outdoors Club. Kilimanjaro, Pico de Orizaba, Iztaccíhuatl, Toubkal.</p>
+      <ul class="end__links">
+        <li data-email-item hidden><a data-email href="#">Email</a></li>
+        <li><a data-portfolio href="https://movuk.me" target="_blank" rel="noopener">movuk.me</a></li>
+        <li><a data-instagram href="https://www.instagram.com/outdoorscmt/" target="_blank" rel="noopener">@outdoorscmt</a></li>
+      </ul>
+      <p class="end__note label">Pulp Friction Creative Grant · 2026 application</p>
+    </div>
+  </footer>
+
+</body>
+</html>

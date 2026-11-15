@@ -1,0 +1,330 @@
+/* That Alpine Feeling — styles
+   Palette and labels follow movuk.me: warm paper, near-black ink,
+   IBM Plex Mono labels, Space Grotesk title. Phrases in Helvetica Bold. */
+
+:root {
+  --paper: #F7F6F2;
+  --ink: #15171A;
+  --muted: #5F625A;
+  --accent: #FF5A3C;
+  --on-photo: #F7F6F2;
+
+  --helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --text: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  /* Phrase sizes — change these to make the text bigger or smaller */
+  --question-size: clamp(1.35rem, 1.1rem + 1.1vw, 2rem);
+  --phrase-size: clamp(1rem, .92rem + .4vw, 1.3rem);
+
+  --gutter: clamp(20px, 5vw, 64px);
+  --air: clamp(96px, 18vh, 200px);
+  --fade: 1.1s;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; overflow-x: hidden; overflow-x: clip; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ---------- shared type ---------- */
+
+.label {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.phrase,
+.frame__text {
+  margin: 0;
+  font-family: var(--helvetica);
+  font-weight: 700;
+  font-size: var(--phrase-size);
+  line-height: 1.35;
+  letter-spacing: -.005em;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* ---------- photo frames ----------
+   Default (no JavaScript, or reduced motion): one full-screen photo after
+   another, phrase centred on top. */
+
+.frame {
+  position: relative;
+  margin: 0;
+  height: 100vh;
+  height: 100svh;
+  min-height: 480px;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  background: var(--ink);
+  color: var(--on-photo);
+  overflow: hidden;
+}
+
+.frame__media {
+  position: absolute;
+  inset: 0;
+}
+.frame__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--pos, 50% 50%);
+}
+/* Soft veil, a little darker in the middle where the text sits */
+.frame__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 50%, rgba(10, 11, 13, .38), rgba(10, 11, 13, 0) 100%),
+    rgba(10, 11, 13, .16);
+}
+
+.frame__text {
+  position: relative;
+  z-index: 2;
+  max-width: 26ch;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .45), 0 0 28px rgba(0, 0, 0, .4);
+}
+
+.frame--hero .frame__text {
+  font-size: var(--question-size);
+  line-height: 1.25;
+  max-width: 22ch;
+}
+
+.hero__top {
+  position: absolute;
+  z-index: 3;
+  top: var(--gutter);
+  left: var(--gutter);
+  right: var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: var(--on-photo);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 0 16px rgba(0, 0, 0, .35);
+}
+
+.hero__cue {
+  position: absolute;
+  z-index: 3;
+  bottom: var(--gutter);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--on-photo);
+}
+.hero__cue::after {
+  content: "";
+  width: 1px;
+  height: 40px;
+  background: currentColor;
+  transform-origin: top;
+  animation: cue 2.4s var(--ease) infinite;
+}
+@keyframes cue {
+  0%   { transform: scaleY(0); opacity: 1; }
+  60%  { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+/* ---------- fade mode ----------
+   Turned on by script.js (html.js-fade). Photos and phrases stay fixed on
+   screen and fade into the next one as you scroll; each .frame is just
+   scroll distance. */
+
+.js-fade .frame {
+  height: 130vh;
+  height: 130svh;
+  background: transparent;
+  overflow: visible;
+  padding: 0;
+  display: block;
+}
+.js-fade .frame__media,
+.js-fade .frame__text {
+  position: fixed;
+  opacity: 0;
+  transition: opacity var(--fade) var(--ease);
+  pointer-events: none;
+}
+.js-fade .frame__media { inset: 0; z-index: 0; }
+.js-fade .frame__text {
+  inset: 0;
+  z-index: 2;
+  max-width: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gutter) max(var(--gutter), calc(50% - 13ch));
+}
+.js-fade .frame--hero .frame__text { padding-inline: max(var(--gutter), calc(50% - 11ch)); }
+
+.js-fade .hero__top,
+.js-fade .hero__cue {
+  position: fixed;
+  opacity: 0;
+  transition: opacity calc(var(--fade) * .6) var(--ease);
+}
+
+.js-fade .frame.is-under .frame__media,
+.js-fade .frame.is-active .frame__media,
+.js-fade .frame.is-active .frame__text,
+.js-fade .frame--hero.is-active .hero__top,
+.js-fade .frame--hero.is-active .hero__cue { opacity: 1; }
+
+/* first paint: no fade on the opening photo */
+.js-fade.no-transition .frame__media,
+.js-fade.no-transition .frame__text,
+.js-fade.no-transition .hero__top,
+.js-fade.no-transition .hero__cue { transition: none; }
+
+/* everything after the photos sits above the fixed layers */
+.interlude, .end { position: relative; z-index: 4; }
+
+/* ---------- interlude ---------- */
+
+.interlude {
+  padding: var(--air) var(--gutter) var(--air);
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 28px;
+}
+.interlude .phrase { max-width: 30ch; }
+.interlude__title {
+  margin: clamp(32px, 6vh, 64px) 0 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 1.2rem + 5vw, 5.5rem);
+  line-height: .95;
+  letter-spacing: -.035em;
+}
+.interlude .label { color: var(--muted); }
+
+/* ---------- end: video + contact ---------- */
+
+.end {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--air) var(--gutter) calc(var(--gutter) * 1.5);
+  display: grid;
+  gap: var(--air);
+  justify-items: center;
+  text-align: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6em;
+  padding: 18px 34px;
+  border: 1px solid var(--paper);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--helvetica);
+  font-weight: 700;
+  font-size: clamp(1rem, .95rem + .3vw, 1.2rem);
+  text-decoration: none;
+  transition: background .3s var(--ease), color .3s var(--ease);
+}
+.btn[href]:hover { background: transparent; color: var(--paper); }
+.btn[aria-disabled="true"] {
+  background: transparent;
+  color: rgba(247, 246, 242, .75);
+  border-color: rgba(247, 246, 242, .35);
+  cursor: default;
+}
+
+.end__info { display: grid; gap: 14px; justify-items: center; }
+.end__name {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 1.1rem + .8vw, 1.7rem);
+  letter-spacing: -.01em;
+}
+.end__bio {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 15px;
+  color: rgba(247, 246, 242, .78);
+}
+.end__links {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 28px;
+  font-family: var(--mono);
+  font-size: 14px;
+}
+.end__links a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(247, 246, 242, .35);
+  padding-bottom: 2px;
+  overflow-wrap: anywhere;
+}
+.end__links a:hover { border-color: var(--accent); }
+.end__note { margin-top: 40px; color: rgba(247, 246, 242, .6); font-size: 11px; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- gentle reveal for the text after the photos ---------- */
+
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
+}
+.js-reveal .reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__cue::after { animation: none; }
+  .js-reveal .reveal { opacity: 1; transform: none; transition: none; }
+  .btn { transition: none; }
+}
