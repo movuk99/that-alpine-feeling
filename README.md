@@ -42,7 +42,7 @@ const CONFIG = {
 
 La mini bio del final está directamente en `index.html`.
 
-**Tamaño de las frases:** al principio de `styles.css` están `--question-size` (la pregunta inicial) y `--phrase-size` (el resto). Las frases usan Helvetica Bold. En Mac e iPhone sale Helvetica; en Windows y Android, que no la traen, se ve Arial, que es casi igual.
+**Tamaño de las frases:** al principio de `styles.css` están `--question-size` (la pregunta inicial) y `--phrase-size` (el resto). Las frases usan Helvetica Neue Light (peso `300`) y el título del final Helvetica Neue Regular (`400`), como los títulos de la web de Bedrock. En Mac e iPhone sale Helvetica; en Windows y Android, que no la traen, se ve Arial, que no tiene versión light y se ve en regular. Para cambiar el grosor de las frases, busca `font-weight: 300` en `styles.css` (`400` = normal, `700` = bold).
 
 **Fundido entre fotos:** al hacer scroll, cada foto aparece con un fundido sobre la anterior. La duración se cambia en `--fade` (por defecto `1.1s`), también al principio de `styles.css`. Si el visitante tiene activada la opción de reducir movimiento en su dispositivo, las fotos pasan con un scroll normal, sin fundidos.
 
@@ -66,6 +66,8 @@ Todas las fotos ocupan la pantalla completa, con su frase centrada encima.
 | `og.jpg` | Vista previa al compartir el link (1200 × 630 px) | — |
 
 **Ajustar el encuadre:** si una foto se recorta mal (sobre todo en móvil, donde se ve en vertical), cambia o añade en su `<img>` un `style="--pos: 70% 50%"`. El primer número mueve el encuadre en horizontal (0% izquierda, 100% derecha) y el segundo en vertical.
+
+**Si una frase no se lee bien sobre su foto:** añade en el `<div class="frame__media">` de esa foto un `style="--veil: .7"`. Oscurece un poco el centro de la foto (por defecto `.46`; más alto = más oscuro). La foto `03.jpg` ya lo lleva.
 
 **Añadir o quitar fotos:** en `index.html`, copia o borra un bloque `<figure class="frame"> … </figure>` completo, cambia el `src` (por ejemplo `images/06.jpg`) y el número de `data-phrase`, y añade la frase en `PHRASES` en esa misma posición.
 

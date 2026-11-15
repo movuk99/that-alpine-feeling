@@ -1,6 +1,7 @@
 /* That Alpine Feeling — styles
    Palette and labels follow movuk.me: warm paper, near-black ink,
-   IBM Plex Mono labels, Space Grotesk title. Phrases in Helvetica Bold. */
+   IBM Plex Mono labels. Phrases in Helvetica Neue Light, closing title in
+   Helvetica Neue Regular (as on the Bedrock Foundation site). */
 
 :root {
   --paper: #F7F6F2;
@@ -65,10 +66,10 @@ a { color: inherit; }
 .frame__text {
   margin: 0;
   font-family: var(--helvetica);
-  font-weight: 700;
+  font-weight: 300;
   font-size: var(--phrase-size);
-  line-height: 1.35;
-  letter-spacing: -.005em;
+  line-height: 1.4;
+  letter-spacing: .005em;
   text-align: center;
   text-wrap: balance;
 }
@@ -107,7 +108,7 @@ a { color: inherit; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 45% at 50% 50%, rgba(10, 11, 13, .38), rgba(10, 11, 13, 0) 100%),
+    radial-gradient(ellipse 60% 45% at 50% 50%, rgba(10, 11, 13, var(--veil, .46)), rgba(10, 11, 13, 0) 100%),
     rgba(10, 11, 13, .16);
 }
 
@@ -115,27 +116,13 @@ a { color: inherit; }
   position: relative;
   z-index: 2;
   max-width: 26ch;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, .45), 0 0 28px rgba(0, 0, 0, .4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .55), 0 0 28px rgba(0, 0, 0, .45);
 }
 
 .frame--hero .frame__text {
   font-size: var(--question-size);
   line-height: 1.25;
   max-width: 22ch;
-}
-
-.hero__top {
-  position: absolute;
-  z-index: 3;
-  top: var(--gutter);
-  left: var(--gutter);
-  right: var(--gutter);
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  color: var(--on-photo);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 0 16px rgba(0, 0, 0, .35);
 }
 
 .hero__cue {
@@ -196,7 +183,6 @@ a { color: inherit; }
 }
 .js-fade .frame--hero .frame__text { padding-inline: max(var(--gutter), calc(50% - 11ch)); }
 
-.js-fade .hero__top,
 .js-fade .hero__cue {
   position: fixed;
   opacity: 0;
@@ -206,13 +192,11 @@ a { color: inherit; }
 .js-fade .frame.is-under .frame__media,
 .js-fade .frame.is-active .frame__media,
 .js-fade .frame.is-active .frame__text,
-.js-fade .frame--hero.is-active .hero__top,
 .js-fade .frame--hero.is-active .hero__cue { opacity: 1; }
 
 /* first paint: no fade on the opening photo */
 .js-fade.no-transition .frame__media,
 .js-fade.no-transition .frame__text,
-.js-fade.no-transition .hero__top,
 .js-fade.no-transition .hero__cue { transition: none; }
 
 /* everything after the photos sits above the fixed layers */
@@ -229,11 +213,11 @@ a { color: inherit; }
 }
 .interlude__title {
   margin: 0 0 clamp(20px, 4vh, 40px);
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: clamp(2.4rem, 1.2rem + 5vw, 5.5rem);
-  line-height: .95;
-  letter-spacing: -.035em;
+  font-family: var(--helvetica);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 1.2rem + 4vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -.015em;
 }
 .interlude .phrase { max-width: 30ch; }
 .interlude__note {
