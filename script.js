@@ -9,7 +9,7 @@ const CONFIG = {
   // Contact. Leave EMAIL empty to hide it.
   EMAIL: "",
   PORTFOLIO_URL: "https://movuk.me",
-  INSTAGRAM: "outdoorscmt", // without the @
+  INSTAGRAM: "matiasmarcin", // without the @
 
   // The question on the first screen.
   QUESTION: "Have you ever felt minuscule in a place so gigantic?", // over 01.jpg
