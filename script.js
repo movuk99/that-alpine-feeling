@@ -17,7 +17,7 @@ const CONFIG = {
   // One phrase per photo, in page order (the last one has no photo).
   PHRASES: [
     "The feeling of being outside, humbled by the reminder of our size.", // 02.jpg
-    "Up here, I am the smallest thing in the frame.",                     // 03.jpg
+    "Noticing ourselves being the smallest thing in frame.",                     // 03.jpg
     "That alpine feeling: just you and the mountains.",                   // 04.jpg
     "Some feelings can't be explained. Maybe they can be filmed.",        // 05.jpg
     "This is my attempt to capture that feeling in my thesis project.",   // under the title
