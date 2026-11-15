@@ -42,7 +42,7 @@ const CONFIG = {
 
 La línea bajo tu nombre y las etiquetas pequeñas bajo los links (*Creative portfolio*, *Instagram*) están directamente en `index.html`.
 
-**Tamaño de las frases:** al principio de `styles.css` están `--question-size` (la pregunta inicial) y `--phrase-size` (el resto). Las frases usan Helvetica Neue Light (peso `300`). El título del final usa **Covered By Your Grace** (Google Fonts), una letra dibujada a mano en el estilo del logo de Bedrock. En Mac e iPhone sale Helvetica; en Windows y Android, que no la traen, se ve Arial, que no tiene versión light y se ve en regular. Para cambiar el grosor de las frases, busca `font-weight: 300` en `styles.css` (`400` = normal, `700` = bold).
+**Tamaño de las frases:** al principio de `styles.css` está `--phrase-size`, un único tamaño para todas las frases, incluida la pregunta inicial. Las frases usan Helvetica Neue Light (peso `300`). El título del final usa **Anybody** (Google Fonts) en su versión más ancha, black e itálica, en la línea del logo de OCMT. En Mac e iPhone sale Helvetica; en Windows y Android, que no la traen, se ve Arial, que no tiene versión light y se ve en regular. Para cambiar el grosor de las frases, busca `font-weight: 300` en `styles.css` (`400` = normal, `700` = bold).
 
 **Fundido entre fotos:** al hacer scroll, cada foto aparece con un fundido sobre la anterior. La duración se cambia en `--fade` (por defecto `1.1s`), también al principio de `styles.css`. Si el visitante tiene activada la opción de reducir movimiento en su dispositivo, las fotos pasan con un scroll normal, sin fundidos.
 

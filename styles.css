@@ -1,7 +1,7 @@
 /* That Alpine Feeling — styles
    Palette and labels follow movuk.me: warm paper, near-black ink,
    IBM Plex Mono labels. Phrases in Helvetica Neue Light, closing title in
-   Covered By Your Grace, a hand-drawn face in the spirit of the Bedrock logo. */
+   Anybody (extra-wide, black, italic), in the spirit of the OCMT logo. */
 
 :root {
   --paper: #F7F6F2;
@@ -15,9 +15,8 @@
   --text: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 
-  /* Phrase sizes — change these to make the text bigger or smaller */
-  --question-size: clamp(1.35rem, 1.1rem + 1.1vw, 2rem);
-  --phrase-size: clamp(1rem, .92rem + .4vw, 1.3rem);
+  /* Size of every phrase (opening question included) — one value for all */
+  --phrase-size: clamp(1.1rem, 1rem + .45vw, 1.4rem);
 
   --gutter: clamp(20px, 5vw, 64px);
   --air: clamp(96px, 18vh, 200px);
@@ -119,12 +118,6 @@ a { color: inherit; }
   text-shadow: 0 1px 2px rgba(0, 0, 0, .55), 0 0 28px rgba(0, 0, 0, .45);
 }
 
-.frame--hero .frame__text {
-  font-size: var(--question-size);
-  line-height: 1.25;
-  max-width: 22ch;
-}
-
 .hero__cue {
   position: absolute;
   z-index: 3;
@@ -181,7 +174,6 @@ a { color: inherit; }
   justify-content: center;
   padding: var(--gutter) max(var(--gutter), calc(50% - 13ch));
 }
-.js-fade .frame--hero .frame__text { padding-inline: max(var(--gutter), calc(50% - 11ch)); }
 
 .js-fade .hero__cue {
   position: fixed;
@@ -213,12 +205,16 @@ a { color: inherit; }
 }
 .interlude__title {
   margin: 0 0 clamp(20px, 4vh, 40px);
-  font-family: "Covered By Your Grace", "Marker Felt", "Comic Sans MS", cursive;
-  font-weight: 400;
-  font-size: clamp(2.6rem, 1.4rem + 5vw, 5.8rem);
-  line-height: 1;
-  letter-spacing: .01em;
+  font-family: "Anybody", "Arial Black", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: 150%;
+  font-size: clamp(1.9rem, 1rem + 4vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -.01em;
   text-transform: uppercase;
+  text-wrap: balance;
+  max-width: 100%;
 }
 .interlude .phrase { max-width: 30ch; }
 .interlude__note {
