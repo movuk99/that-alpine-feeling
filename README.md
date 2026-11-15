@@ -78,6 +78,8 @@ Todas las fotos ocupan la pantalla completa, con su frase centrada encima.
 3. **Subir fotos:** entra en la carpeta `images`, pulsa **Add file → Upload files**, arrastra las fotos (con el mismo nombre para sustituir) y pulsa **Commit changes**.
 4. GitHub Pages vuelve a publicar solo. En 1–2 minutos verás el cambio en la página (si no, recarga con Cmd+Shift+R). El progreso se ve en la pestaña **Actions**.
 
+> **Caché:** los navegadores guardan `script.js` y `styles.css` hasta 10 minutos. Si cambias alguno de los dos, sube también el número de versión en `index.html` (`script.js?v=3` → `?v=4`, `styles.css?v=3` → `?v=4`). Así quien ya visitó la página recibe la versión nueva al momento.
+
 ## 4. Conectar un dominio propio (por ejemplo `film.movuk.me`)
 
 1. En el panel de tu proveedor de dominio (donde gestionas `movuk.me`), crea un registro DNS:
