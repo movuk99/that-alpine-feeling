@@ -1,7 +1,7 @@
 /* That Alpine Feeling — styles
    Palette and labels follow movuk.me: warm paper, near-black ink,
    IBM Plex Mono labels. Phrases in Helvetica Neue Light, closing title in
-   Anybody (extra-wide, black, italic), in the spirit of the OCMT logo. */
+   Bebas Neue, tall and condensed like a mountain poster. */
 
 :root {
   --paper: #F7F6F2;
@@ -16,7 +16,7 @@
   --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 
   /* Size of every phrase (opening question included) — one value for all */
-  --phrase-size: clamp(1.1rem, 1rem + .45vw, 1.4rem);
+  --phrase-size: clamp(1.25rem, 1.1rem + .6vw, 1.65rem);
 
   --gutter: clamp(20px, 5vw, 64px);
   --air: clamp(96px, 18vh, 200px);
@@ -205,13 +205,11 @@ a { color: inherit; }
 }
 .interlude__title {
   margin: 0 0 clamp(20px, 4vh, 40px);
-  font-family: "Anybody", "Arial Black", sans-serif;
-  font-weight: 900;
-  font-style: italic;
-  font-stretch: 150%;
-  font-size: clamp(1.9rem, 1rem + 4vw, 4.4rem);
-  line-height: 1.02;
-  letter-spacing: -.01em;
+  font-family: "Bebas Neue", "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 400;
+  font-size: clamp(3.4rem, 1.8rem + 7vw, 8.5rem);
+  line-height: .92;
+  letter-spacing: .01em;
   text-transform: uppercase;
   text-wrap: balance;
   max-width: 100%;
