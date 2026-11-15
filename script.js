@@ -20,8 +20,11 @@ const CONFIG = {
     "Up here, I am the smallest thing in the frame.",                     // 03.jpg
     "That alpine feeling: just you and the mountains.",                   // 04.jpg
     "Some feelings can't be explained. Maybe they can be filmed.",        // 05.jpg
-    "This film is my attempt to bring that feeling home.",                // before the title
+    "This is my attempt to capture that feeling in my thesis project.",   // under the title
   ],
+
+  // Small line under the last phrase, just above the video button.
+  CLOSING_LINE: "And this is why this grant would change everything for me.",
 };
 
 /* ==========================================================================
@@ -42,6 +45,9 @@ const CONFIG = {
     const text = CONFIG.PHRASES[Number(el.dataset.phrase)];
     if (text) el.textContent = text;
   });
+
+  const closing = $("[data-closing]");
+  if (closing && CONFIG.CLOSING_LINE) closing.textContent = CONFIG.CLOSING_LINE;
 
   // --- Video button ----------------------------------------------------------
   const btn = $("[data-video]");

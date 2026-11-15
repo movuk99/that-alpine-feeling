@@ -28,16 +28,19 @@ const CONFIG = {
   INSTAGRAM: "outdoorscmt",           // sin la @
   QUESTION: "Have you ever felt minuscule in a place so gigantic?",
   PHRASES: [ "...", "...", ... ],     // una por foto, en orden
+  CLOSING_LINE: "...",                // línea pequeña sobre el botón del video
 };
 ```
 
-- **Video:** pega el link entre las comillas de `VIDEO_URL` (YouTube, Vimeo, Drive…). Mientras esté vacío, el botón dice *Video coming soon* y está desactivado. Con link, dice *Watch the video* y lo abre en una pestaña nueva.
-- **Frases:** cada línea de `PHRASES` corresponde a una foto (el comentario `// 02.jpg` indica cuál). La última va sin foto, justo antes del título. Mantén las comillas y la coma al final de cada línea.
+- **Video:** pega el link entre las comillas de `VIDEO_URL` (YouTube, Vimeo, Drive…). El botón está al final, debajo de la última frase. Mientras esté vacío, dice *Video coming soon* y está desactivado. Con link, dice *Watch the video* y lo abre en una pestaña nueva.
+- **Frases:** cada línea de `PHRASES` corresponde a una foto (el comentario `// 02.jpg` indica cuál). La última va sin foto, debajo del título *That Alpine Feeling*. Mantén las comillas y la coma al final de cada línea.
 - **Email:** si lo dejas vacío, no aparece.
 
 > Las mismas frases están también escritas en `index.html`. Solo se usan si el JavaScript no carga (casi nunca). Si quieres que coincidan siempre, cámbialas en los dos sitios.
 
-La mini bio del final y la línea bajo el título (*A documentary · Peru & Bolivia · 2027*) están directamente en `index.html`.
+- **Línea pequeña:** `CLOSING_LINE` es el texto en letra pequeña entre la última frase y el botón del video.
+
+La mini bio del final está directamente en `index.html`.
 
 **Tamaño de las frases:** al principio de `styles.css` están `--question-size` (la pregunta inicial) y `--phrase-size` (el resto). Las frases usan Helvetica Bold. En Mac e iPhone sale Helvetica; en Windows y Android, que no la traen, se ve Arial, que es casi igual.
 
