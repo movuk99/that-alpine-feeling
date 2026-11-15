@@ -119,7 +119,15 @@ const CONFIG = {
 
     root.classList.add("no-transition", "js-fade");
     update();
-    requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove("no-transition")));
+    setTimeout(() => root.classList.remove("no-transition"), 60);
+
+    // Once the opening photo is in, fetch the rest so each fade has its photo ready.
+    const preload = () => frames.forEach((f) => {
+      const img = f.querySelector("img");
+      if (img && img.loading === "lazy") img.loading = "eager";
+    });
+    if (document.readyState === "complete") preload();
+    else window.addEventListener("load", preload);
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
   }
